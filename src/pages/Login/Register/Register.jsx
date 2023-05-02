@@ -11,6 +11,8 @@ import "./Register.css";
 const Register = () => {
     const {createUser} = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
+    const [error, setError] = useState('');
+    const [success, setSuccess] =useState('');
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -25,9 +27,18 @@ const Register = () => {
             const createdUser = result.user;
             console.log(createdUser);
             alert('Created');
+            setError('');
+            setSuccess('User created Successfully');
+
         })
         .catch(error => {
-            console.log(error);
+            const errMsg = error.message;
+            setSuccess('');
+            if(errMsg.includes('auth/email-already-in-use')){
+                setError('This user already exists');
+                
+            }
+            console.log(error.message);
         })
     }
 
@@ -54,7 +65,7 @@ const Register = () => {
             type="text"
             placeholder="Enter photo URL"
             required
-            defaultValue="https://imglarger.com/Images/before-after/ai-image-enlarger-1-after-2.jpg"
+            defaultValue="https://i.ibb.co/M9ZxLQS/Ibrahim-S-Tanvir.jpg"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -88,6 +99,12 @@ const Register = () => {
             onClick={handleAccepted}
           />
         </Form.Group>
+        <div className="text-success text-center">
+        {success}
+        </div>
+        <div className="text-danger">
+        {error}
+        </div>
         <Button className='w-100' variant="primary" type="submit" disabled={!accepted}>
           Register
         </Button>
