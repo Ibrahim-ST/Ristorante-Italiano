@@ -4,10 +4,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className='text-white'>
         <Navbar.Brand href="/">Ristorante Italiano</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -21,9 +22,9 @@ const NavigationBar = () => {
             
           </Nav>
           <Nav>
+          <Link>Profile</Link>
           <Button variant="secondary" className='mx-2'>LogOut</Button>
-          
-          <Button variant="secondary">Login</Button>
+          <Link to='/login'><Button variant="secondary">Login</Button></Link>
             
           </Nav>
         </Navbar.Collapse>
