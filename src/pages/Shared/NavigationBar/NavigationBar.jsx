@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-
+import './Nav.css'
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -19,17 +19,17 @@ const NavigationBar = () => {
       });
   };
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container className="text-white">
-        <Navbar.Brand href="/">Ristorante Italiano</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" className='nav-bg'>
+      <Container >
+        <Navbar.Brand className="text-white" href="/">Ristorante Italiano</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto ">
-            <Nav.Link href="#features">Chefs</Nav.Link>
-            <Nav.Link href="#pricing">Blog</Nav.Link>
-            <Nav.Link href="#pricing">Contact</Nav.Link>
-            <Nav.Link href="#pricing">Recipes</Nav.Link>
-            <Nav.Link href="#pricing">Videos</Nav.Link>
+          <Nav className="mx-auto text-white">
+            <Nav.Link href="/" className='text-white'>Chefs</Nav.Link>
+            <Nav.Link href="/">Blog</Nav.Link>
+            <Nav.Link href="/">Recipes</Nav.Link>
+            <Nav.Link href="/">Videos</Nav.Link>
+            <Nav.Link href="/">Contact</Nav.Link>
           </Nav>
           <Nav>
             <Link>{user?.email || user?.displayName}</Link>
