@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="  ">
-      <Container className="w-25 mx-auto bg-gradient-info my-4 py-5">
+    <div className="w-25 mx-auto bg mt-4 py-4 rounded  ">
+      <Container className="">
         <h3>Please Login</h3>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -27,6 +27,7 @@ const Login = () => {
               type="password"
               placeholder="Password"
               required
+              
             />
           </Form.Group>
 

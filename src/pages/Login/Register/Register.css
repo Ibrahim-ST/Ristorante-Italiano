@@ -1,0 +1,12 @@
+.bg{
+ background-color: #EBF2FA; 
+}
+.btn-bg{
+ background-color: #0D1927;
+ color:white; 
+}
+.btn-bg:hover{
+    background-color: #080d12;
+    color:white; 
+
+}
