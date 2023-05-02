@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Register.css";
 
 
@@ -109,18 +110,7 @@ const Register = () => {
           Register
         </Button>
         <div>
-          <div
-            className=" d-flex gap-2 mt-2 px-1"
-            role="group"
-            aria-label="Button group example"
-          >
-            <button type="button" className=" btn btn-bg ">
-              Sign in with Google
-            </button>
-            <button type="button" className="btn btn-bg">
-            Sign in with GitHub
-            </button>
-          </div>
+          <SocialLogin></SocialLogin>
         </div>
         <br />
         <Form.Text className="text-secondary">

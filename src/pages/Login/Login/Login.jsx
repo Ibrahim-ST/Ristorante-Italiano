@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -32,15 +33,14 @@ const Login = () => {
         }
         else if (errMsg.includes("auth/user-not-found")) {
           setError("User not found. Please sign up first");
-        }
-         
+        }        
 
         
         console.log(error);
       });
   };
   return (
-    <div className="w-25 mx-auto bg mt-4 py-4 rounded  ">
+    <div className="w-25 mx-auto bg mt-4 py-5 rounded  ">
       <Container className="">
         <h3>Please Login</h3>
         <Form onSubmit={handleLogin}>
@@ -65,10 +65,11 @@ const Login = () => {
           </Form.Group>
           <div className="text-success text-center">{success}</div>
           <div className="text-danger">{error}</div>
-          <Button variant="primary" type="submit">
+          <Button className='w-100' variant="primary" type="submit">
             Login
           </Button>
           <br />
+          <SocialLogin></SocialLogin>
           <Form.Text className="text-secondary">
             Don't have an account? <Link to="/register">Register</Link>
           </Form.Text>

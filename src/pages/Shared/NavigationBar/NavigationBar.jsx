@@ -8,11 +8,19 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavigationBar = () => {
-    const {user, logOut} = useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        alert("Logged out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container className='text-white'>
+      <Container className="text-white">
         <Navbar.Brand href="/">Ristorante Italiano</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -22,13 +30,22 @@ const NavigationBar = () => {
             <Nav.Link href="#pricing">Contact</Nav.Link>
             <Nav.Link href="#pricing">Recipes</Nav.Link>
             <Nav.Link href="#pricing">Videos</Nav.Link>
-            
           </Nav>
           <Nav>
-          <Link>Profile</Link>
-          <Button variant="secondary" className='mx-2'>LogOut</Button>
-          <Link to='/login'><Button variant="secondary">Login</Button></Link>
-            
+            <Link>{user?.email || user?.displayName}</Link>
+            {user ? (
+              <Button
+                variant="secondary"
+                className="mx-2"
+                onClick={handleLogOut}
+              >
+                LogOut
+              </Button>
+            ) : (
+              <Link to="/login">
+                <Button variant="secondary">Login</Button>
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
