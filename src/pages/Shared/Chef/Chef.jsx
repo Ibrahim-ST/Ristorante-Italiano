@@ -8,7 +8,7 @@ const Chef = () => {
   const allRecipe = useLoaderData();
   console.log(allRecipe);
   return (
-    <div className="mx-5">
+    <div className="mx-5" id="chefSection">
       {id && <h2 className='text-center my-4'>Our Chef</h2>}
       <div className="chef-data">
         {allRecipe.map((recipe) => (

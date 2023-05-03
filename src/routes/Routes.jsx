@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import LoginLayout from "../layouts/LoginLayout";
 import Main from "../layouts/Main";
 import RecipeLayout from "../layouts/RecipeLayout";
+import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/terms",
         element: <Terms></Terms>,
       },
+      {
+        path:'/blog',
+        element: <Blog></Blog>
+      }
     ],
     errorElement: <ErrorPage></ErrorPage>
   },
