@@ -2,10 +2,13 @@ import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import LoginLayout from "../layouts/LoginLayout";
 import Main from "../layouts/Main";
+import RecipeLayout from "../layouts/RecipeLayout";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import Chef from "../pages/Shared/Chef/Chef";
+import Recipe from "../pages/Shared/Recipe/Recipe";
 import Terms from "../pages/Shared/Terms/Terms";
 
 const router = createBrowserRouter([
@@ -30,6 +33,7 @@ const router = createBrowserRouter([
         element: <Terms></Terms>,
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>
   },
   {
     path: "/chef",
@@ -43,6 +47,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'/recipe',
+    element: <RecipeLayout></RecipeLayout>,
+    children: [
+        {
+            path:':id',
+            element: <Recipe></Recipe>,
+            loader: ({params}) => fetch(`http://localhost:5000/recipe/${params.id}`)
+
+        }
+    ]
+  }
 ]);
 
 export default router;

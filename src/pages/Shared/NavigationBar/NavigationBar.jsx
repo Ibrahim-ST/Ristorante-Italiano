@@ -21,11 +21,11 @@ const NavigationBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className='nav-bg'>
       <Container >
-        <Navbar.Brand className="text-white" href="/">Ristorante Italiano</Navbar.Brand>
+        <Navbar.Brand className="text-black" href="/">Ristorante Italiano</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto text-white">
-            <Nav.Link href="/" className='text-white'>Chefs</Nav.Link>
+            <Nav.Link href="/">Chefs</Nav.Link>
             <Nav.Link href="/">Blog</Nav.Link>
             <Nav.Link href="/">Recipes</Nav.Link>
             <Nav.Link href="/">Videos</Nav.Link>

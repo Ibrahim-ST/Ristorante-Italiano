@@ -1,13 +1,13 @@
 import React from "react";
-
+import './Footer.css'
 const Footer = () => {
   return (
     <div className="mt-5 pt-5">
-      <footer className="py-4" style={{ backgroundColor: "#000", color: "#fff" }}>
+      <footer className="py-4" style={{ backgroundColor: "#1D2641", color: "#fff" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <h3>Ristorante Italiano</h3>
+              <h1 className="title">Ristorante Italiano</h1>
               <p>
                 We are a team of food enthusiasts who love to share our favorite
                 recipes with others. Our goal is to provide you with delicious
@@ -18,7 +18,7 @@ const Footer = () => {
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <a href="#">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
                   <a href="#">Recipes</a>
@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <p>
+              <p className='text-center'>
                 &copy; {new Date().getFullYear()} Foodie Recipes. All rights
                 reserved.
               </p>
