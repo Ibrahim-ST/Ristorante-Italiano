@@ -2,14 +2,18 @@ import React, { useContext, useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const from = location.state?.from?.pathname|| '/chef/0';
+
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,6 +27,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setError("");
+        navigate(from, {replace:true});
         setSuccess("Logged in Successfully");
       })
       .catch((error) => {

@@ -35,7 +35,7 @@ const ChefInfo = ({ recipe }) => {
             <h6>Likes: {likes}</h6>
           </Card.Body>
           <Link to={`/recipe/${id}`}>
-            <Button variant="success" className="m-1 w-100">
+            <Button className="my-1 w-100 btn-custom">
               View Recipe
             </Button>
           </Link>
