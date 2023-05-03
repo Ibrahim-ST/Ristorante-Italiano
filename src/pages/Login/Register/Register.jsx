@@ -23,6 +23,10 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo_url, email, password);
 
+        if(password.length< 6 ){
+          setError('Password should be at least 6 digits');
+          return;
+        }
         createUser(email, password)
         .then(result => {
             const createdUser = result.user;
@@ -55,7 +59,7 @@ const Register = () => {
           <Form.Control
             name="name"
             type="text"
-            placeholder="Your Name"
+            placeholder="Enter Your Name"
             required
           />
         </Form.Group>
@@ -74,7 +78,7 @@ const Register = () => {
           <Form.Control
             name="email"
             type="email"
-            placeholder="Enter email"
+            placeholder="Enter your email"
             required
           />
         </Form.Group>
@@ -84,7 +88,7 @@ const Register = () => {
           <Form.Control
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Enter your Password"
             required
           />
         </Form.Group>
