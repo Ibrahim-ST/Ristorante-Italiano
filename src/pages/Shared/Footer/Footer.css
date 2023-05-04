@@ -13,4 +13,11 @@ ul{
 
 .btn-custom{
     background-color: #FE8C05;
+    border: none;
+}
+
+.btn-custom:hover{
+    background-color: #fe6405;
+    color:black
+
 }

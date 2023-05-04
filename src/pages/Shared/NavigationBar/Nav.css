@@ -1,7 +1,27 @@
-.nav-bg{
-background-color: rgba(0, 0, 0, 0.039);
+.nav-bg {
+    background-color: rgba(0, 0, 0, 0.039);
 }
+
 .navbar-nav a {
     color: black;
 
+}
+
+.btn-custom {
+    background-color: #FE8C05;
+    color: white;
+    font-weight: 500;
+}
+
+.testimonial-img{
+    border-radius: 100px;
+    width: 200px;height: 200px;
+    object-fit: cover;
+}
+
+.t-card{
+    background-color: #fe8e0519;
+}
+.t-card:hover{
+    background-color: #fe8e0548;
 }

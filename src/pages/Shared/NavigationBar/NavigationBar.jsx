@@ -25,7 +25,7 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto text-white">
-            <Nav.Link href="#chefSection">Chefs</Nav.Link>
+            <Nav.Link href="/chef/0#chefSection">Chefs</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/">Recipes</Nav.Link>
             <Nav.Link href="/">Videos</Nav.Link>
