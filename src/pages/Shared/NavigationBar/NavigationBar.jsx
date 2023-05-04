@@ -7,12 +7,27 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import "./Nav.css";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log('nav user', user)
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("Logged out");
+        toast('Logged out!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +60,9 @@ const NavigationBar = () => {
             </NavLink>
           </Nav>
           <Nav>
-            <Link>{user?.email || user?.displayName}</Link>
+            
+            {user && 
+            <img src={user?.photoURL} alt="" className='profile-img'/>}
             {user ? (
               <Button
                 variant="secondary"
@@ -62,6 +79,18 @@ const NavigationBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />   
     </Navbar>
   );
 };

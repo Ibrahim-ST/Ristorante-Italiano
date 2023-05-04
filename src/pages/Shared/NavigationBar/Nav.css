@@ -12,6 +12,12 @@
     color: white;
     font-weight: 500;
 }
+.btn-custom:disabled {
+    background-color: #FE8C05;
+    color: white;
+    font-weight: 500;
+}
+
 
 .testimonial-img{
     border-radius: 100px;
@@ -36,4 +42,9 @@
     background-color: #60676e6b;
     border-radius: 3px;     
     font-weight: 600; 
+}
+.profile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

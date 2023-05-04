@@ -1,3 +1,4 @@
+import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
@@ -7,10 +8,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Register.css";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUser} = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] =useState('');
@@ -31,9 +35,28 @@ const Register = () => {
         .then(result => {
             const createdUser = result.user;
             console.log(createdUser);
-            alert('Created');
+            toast('User created!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              });
             setError('');
             setSuccess('User created Successfully');
+            updateUser(result.user, {
+              displayName: name,
+              photoURL: photo_url
+            })
+            .then(() =>{
+              console.log("user name updated");
+            })
+            .catch(error => {
+              console.log('error')
+            })
 
         })
         .catch(error => {
@@ -47,11 +70,13 @@ const Register = () => {
         })
     }
 
+    
     const handleAccepted = event => {
         setAccepted(event.target.checked);
     }
   return (
-    <Container className="w-25 mx-auto bg mt-4 py-4 rounded">
+    <div className="bg-blog py-2">
+      <Container className="w-25 mx-auto bg py-4 rounded">
       <h3>Please Register</h3>
       <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -110,7 +135,7 @@ const Register = () => {
         <div className="text-danger">
         {error}
         </div>
-        <Button className='w-100' variant="primary" type="submit" disabled={!accepted}>
+        <Button className='w-100 btn-custom' type="submit" disabled={!accepted}>
           Register
         </Button>
         <div>
@@ -123,7 +148,20 @@ const Register = () => {
         <Form.Text className="text-success"></Form.Text>
         <Form.Text className="text-danger"></Form.Text>
       </Form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </Container>
+    </div>
   );
 };
 

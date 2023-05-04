@@ -45,7 +45,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="w-25 mx-auto bg mt-4 py-5 rounded  ">
+    <div className="bg-blog py-2">
+      <div className="w-25 mx-auto bg   py-5 rounded  ">
       <Container className="">
         <h3>Please Login</h3>
         <Form onSubmit={handleLogin}>
@@ -70,18 +71,19 @@ const Login = () => {
           </Form.Group>
           <div className="text-success text-center">{success}</div>
           <div className="text-danger">{error}</div>
-          <Button className='w-100' variant="primary" type="submit">
+          <Button className='w-100 btn-custom' variant="primary" type="submit">
             Login
           </Button>
           <br />
           <SocialLogin></SocialLogin>
-          <Form.Text className="text-secondary">
+          <Form.Text className="text-secondary pt-4">
             Don't have an account? <Link to="/register">Register</Link>
           </Form.Text>
           <Form.Text className="text-success"></Form.Text>
           <Form.Text className="text-danger"></Form.Text>
         </Form>
       </Container>
+    </div>
     </div>
   );
 };

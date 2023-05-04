@@ -5,8 +5,7 @@ import ChefInfo from "../ChefInfo/ChefInfo";
 import './Chef.css'
 const Chef = () => {
   const { id } = useParams();
-  const allRecipe = useLoaderData();
-  console.log(allRecipe);
+  const allRecipe = useLoaderData(); 
   return (
     <div className="mx-5" id="chefSection">
       {id && <h2 className='text-center my-4'>Our Chef</h2>}
