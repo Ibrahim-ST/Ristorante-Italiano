@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import './Nav.css'
 const NavigationBar = () => {
@@ -25,10 +25,11 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto text-white">
-            <Nav.Link href="/chef/0#chefSection">Chefs</Nav.Link>
-            <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
-            <Nav.Link href="/about">About Us</Nav.Link>
+          <NavLink to="/chef/0" exact className="nav-link" activeClassName="active">Home</NavLink>           
+          <NavLink to="/blog" className="nav-link" activeClassName="active">Blogs</NavLink>
+          <NavLink to="/contact" className="nav-link" activeClassName="active">Contact</NavLink>
+          <NavLink to="/about" className="nav-link" activeClassName="active">About Us</NavLink>
+             
             
           </Nav>
           <Nav>

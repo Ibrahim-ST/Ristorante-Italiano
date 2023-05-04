@@ -25,3 +25,15 @@
 .t-card:hover{
     background-color: #fe8e0548;
 }
+
+.bg-blog{
+    background-color: #FFF4E6;
+}
+.bg-blogpage{
+    background-color: #f9e6ce;
+}
+.active{
+    background-color: #60676e6b;
+    border-radius: 3px;     
+    font-weight: 600; 
+}

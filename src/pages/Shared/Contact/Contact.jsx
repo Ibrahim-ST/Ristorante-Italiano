@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 const Contact = () => {
-    return (
-        <div className="py-5">
+  return (
+    <div className="py-5 bg-blog">
       <Container>
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -18,9 +18,13 @@ const Contact = () => {
               </Form.Group>
               <Form.Group controlId="formMessage">
                 <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={5} placeholder="Enter your message" />
+                <Form.Control
+                  as="textarea"
+                  rows={5}
+                  placeholder="Enter your message"
+                />
               </Form.Group>
-              <Button className = 'btn-custom my-2'type="submit">
+              <Button className="btn-custom my-2" type="submit">
                 Submit
               </Button>
             </Form>
@@ -28,7 +32,7 @@ const Contact = () => {
         </Row>
       </Container>
     </div>
-    );
+  );
 };
 
 export default Contact;

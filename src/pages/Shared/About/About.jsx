@@ -3,7 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 
 const About = () => {
   return (
-    <div className="py-5">
+    <div className="py-5 bg-blog">
       <Container>
         <Row>
           <Col lg={{ span: 10, offset: 1 }}>

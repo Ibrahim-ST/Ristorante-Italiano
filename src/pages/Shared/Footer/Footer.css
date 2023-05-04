@@ -2,22 +2,27 @@ ul li a {
     text-decoration: none;
     color: white;
 }
-ul{
+
+ul li a:hover {
+    color: #FE8C05;
+
+}
+
+ul {
     list-style: none;
 
 }
 
-.title{
+.title {
     color: #FE8C05;
 }
 
-.btn-custom{
+.btn-custom {
     background-color: #FE8C05;
     border: none;
 }
 
-.btn-custom:hover{
+.btn-custom:hover {
     background-color: #fe6405;
-    color:black
-
+    color: black
 }
