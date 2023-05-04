@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FaHeart } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = () => {
+  const [btnDisable, setBtnDisable] = useState(false);
+
   const recipe = useLoaderData();
   console.log(recipe);
   const {
@@ -17,6 +22,20 @@ const Recipe = () => {
     recipes,
     years_of_experience,
   } = recipe;
+
+  const handleFav = () => {
+    toast('Added to favorite!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      setBtnDisable(true)
+  }
   return (
     <Container>
       <Card>
@@ -42,7 +61,7 @@ const Recipe = () => {
       <h3 className="my-4 text-center">Popular Recipe</h3>
       <div className="d-flex ">
         {recipes.map((recipe) => (
-          <Card className='w-100'>
+          <Card className="w-100">
             <Card.Header as="h5" className="text-center btn-custom">
               {recipe.recipe_name}
             </Card.Header>
@@ -62,12 +81,27 @@ const Recipe = () => {
             <Card.Footer>
               <div className="  d-flex align-items-center justify-content-between">
                 <p>Rating : {recipe.rating}</p>
-                <p><FaHeart /></p>
+                <Button variant="warning" onClick={handleFav} disabled={btnDisable}>
+                  <FaHeart />
+                </Button>
               </div>
             </Card.Footer>
           </Card>
         ))}
       </div>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </Container>
   );
 };

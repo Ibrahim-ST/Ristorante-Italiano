@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import './Nav.css'
+import "./Nav.css";
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -19,18 +19,30 @@ const NavigationBar = () => {
       });
   };
   return (
-    <Navbar collapseOnSelect expand="lg" className='nav-bg'>
-      <Container >
-        <Navbar.Brand className="text-black" href="/">Ristorante Italiano</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" className="nav-bg">
+      <Container>
+        <Navbar.Brand className="text-black" href="/">
+          Ristorante Italiano
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto text-white">
-          <NavLink to="/chef/0" exact className="nav-link" activeClassName="active">Home</NavLink>           
-          <NavLink to="/blog" className="nav-link" activeClassName="active">Blogs</NavLink>
-          <NavLink to="/contact" className="nav-link" activeClassName="active">Contact</NavLink>
-          <NavLink to="/about" className="nav-link" activeClassName="active">About Us</NavLink>
-             
-            
+            <NavLink to="/chef/0" className="nav-link" activeclassname="active">
+              Home
+            </NavLink>
+            <NavLink to="/blog" className="nav-link" activeclassname="active">
+              Blogs
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="nav-link"
+              activeclassname="active"
+            >
+              Contact
+            </NavLink>
+            <NavLink to="/about" className="nav-link" activeclassname="active">
+              About Us
+            </NavLink>
           </Nav>
           <Nav>
             <Link>{user?.email || user?.displayName}</Link>
