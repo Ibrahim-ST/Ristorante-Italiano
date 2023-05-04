@@ -27,9 +27,9 @@ const NavigationBar = () => {
           <Nav className="mx-auto text-white">
             <Nav.Link href="/chef/0#chefSection">Chefs</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/">Recipes</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/">Videos</Nav.Link>
-            <Nav.Link href="/">Contact</Nav.Link>
           </Nav>
           <Nav>
             <Link>{user?.email || user?.displayName}</Link>
