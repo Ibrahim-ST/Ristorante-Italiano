@@ -6,10 +6,10 @@ import Card from "react-bootstrap/Card";
 import { FaHeart } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { Rating } from "@smastrom/react-rating";
-
 import "@smastrom/react-rating/style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Recipe = () => {
   const [btnDisable, setBtnDisable] = useState(false);
@@ -37,8 +37,7 @@ const Recipe = () => {
       progress: undefined,
       theme: "dark",
     });
-    if(id)
-    setBtnDisable(true);
+    if (id) setBtnDisable(true);
   };
   return (
     <Container>
@@ -46,12 +45,15 @@ const Recipe = () => {
         <Card.Header as="h5" className="text-center btn-custom">
           {chef_name}
         </Card.Header>
-        <Card.Img
-          variant="top"
-          className="w-75 mx-auto py-2 rounded"
-          src={chef_picture}
-          alt=""
-        />
+
+        <div className="text-center">
+          <LazyLoadImage
+            src={chef_picture}
+            style={{ borderRadius: "15px", width: "85%" }}
+            effect="blur"
+            className="img-fluid py-2 rounded"
+          ></LazyLoadImage>
+        </div>
         <Card.Body>
           <div className="text-warning d-flex justify-content-evenly">
             <p>Likes : {likes}</p>
