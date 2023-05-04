@@ -5,8 +5,8 @@ import Carousel from "react-bootstrap/Carousel";
 const NewsLetter = () => {
   return (
     <Container>
-      <div className="newsletter bg-light p-5 my-5">
-        <h2 className="mb-4">Subscribe to Our Newsletter for New Recipe</h2>
+      <div className="newsletter t-card p-5 my-5 rounded">
+        <h2 className="mb-4 text-center">Subscribe to Our Newsletter for New Recipe</h2>
         <form>
           <div className="input-group mb-3">
             <label htmlFor="email" className="visually-hidden">

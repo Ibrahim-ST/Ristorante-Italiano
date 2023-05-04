@@ -9,6 +9,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import Chef from "../pages/Shared/Chef/Chef";
+import Contact from "../pages/Shared/Contact/Contact";
 import Recipe from "../pages/Shared/Recipe/Recipe";
 import Terms from "../pages/Shared/Terms/Terms";
 import PrivateRoute from "./PrivateRoute";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:'/blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       }
     ],
     errorElement: <ErrorPage></ErrorPage>

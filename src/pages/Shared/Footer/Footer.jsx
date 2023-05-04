@@ -21,10 +21,10 @@ const Footer = () => {
                   <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="#">Recipes</a>
+                  <a href="/blogs">Blog</a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a href="#">Recipes</a>
                 </li>
                 <li>
                   <a href="#">About Us</a>
@@ -38,17 +38,15 @@ const Footer = () => {
               <h3>Connect With Us</h3>
               <ul>
                 <li>
-                  <a href="#">Facebook</a>
+                  <a href="https://www.facebook.com/ibrahim.siddiqueee">Facebook</a>
                 </li>
                 <li>
-                  <a href="#">Twitter</a>
+                  <a href="https://github.com/Ibrahim-ST">GitHub</a>
                 </li>
                 <li>
-                  <a href="#">Instagram</a>
+                  <a href="https://www.instagram.com/__witchfinder_general__/">Instagram</a>
                 </li>
-                <li>
-                  <a href="#">Pinterest</a>
-                </li>
+                 
               </ul>
             </div>
           </div>
