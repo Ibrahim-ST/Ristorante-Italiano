@@ -4,10 +4,12 @@ import { useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FaHeart } from "react-icons/fa";
-import { Rating } from "@smastrom/react-rating";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from "@smastrom/react-rating";
+
+import "@smastrom/react-rating/style.css";
 
 const Recipe = () => {
   const [btnDisable, setBtnDisable] = useState(false);
@@ -21,10 +23,11 @@ const Recipe = () => {
     likes,
     recipes,
     years_of_experience,
+    id,
   } = recipe;
 
   const handleFav = () => {
-    toast('Added to favorite!', {
+    toast("Added to favorite!", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -33,9 +36,10 @@ const Recipe = () => {
       draggable: true,
       progress: undefined,
       theme: "dark",
-      });
-      setBtnDisable(true)
-  }
+    });
+    if(id)
+    setBtnDisable(true);
+  };
   return (
     <Container>
       <Card>
@@ -49,7 +53,7 @@ const Recipe = () => {
           alt=""
         />
         <Card.Body>
-          <div className="text-danger d-flex justify-content-between">
+          <div className="text-warning d-flex justify-content-evenly">
             <p>Likes : {likes}</p>
             <p>Years of Experience : {years_of_experience}</p>
             <p>No of Recipes : {recipes.length}</p>
@@ -59,29 +63,44 @@ const Recipe = () => {
       </Card>
 
       <h3 className="my-4 text-center">Popular Recipe</h3>
-      <div className="d-flex ">
+      <div className="d-flex gap-2">
         {recipes.map((recipe) => (
-          <Card className="w-100">
+          <Card className="w-100 mb-4">
             <Card.Header as="h5" className="text-center btn-custom">
               {recipe.recipe_name}
             </Card.Header>
 
             <Card.Body>
               <div className="">
-                <p>Cooking Method : {recipe.cooking_method}</p>
-                <p>
-                  Ingredients{" "}
+                <img
+                  src={recipe?.recipe_img}
+                  alt=""
+                  className="img-fluid recipeImg w-100 rounded"
+                />
+                <h5>Cooking Method:</h5>
+                <span>{recipe.cooking_method.slice(0, 250)}...</span>
+                <h5>Ingredients:</h5>
+                <span className="ingredients">
                   {recipe.ingredients.map((i) => (
-                    <p>{i}</p>
+                    <li>{i}</li>
                   ))}
-                </p>
+                </span>
               </div>
               <Card.Text>{}</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <div className="  d-flex align-items-center justify-content-between">
-                <p>Rating : {recipe.rating}</p>
-                <Button variant="warning" onClick={handleFav} disabled={btnDisable}>
+              <div className="d-flex align-items-center justify-content-between">
+                <div>Rating : {recipe.rating}</div>
+                <Rating
+                  style={{ maxWidth: 120 }}
+                  value={recipe.rating}
+                  readOnly
+                />
+                <Button
+                  variant="warning"
+                  onClick={handleFav}
+                  disabled={btnDisable}
+                >
                   <FaHeart />
                 </Button>
               </div>

@@ -24,13 +24,13 @@ const Footer = () => {
                   <a href="/blogs">Blog</a>
                 </li>
                 <li>
+                  <a href="/about">About Us</a>
+                </li>
+                <li>
+                  <a href="/contact">Contact Us</a>
+                </li>
+                <li>
                   <a href="#">Recipes</a>
-                </li>
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
                 </li>
               </ul>
             </div>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-12">
               <p className='text-center'>
-                &copy; {new Date().getFullYear()} Foodie Recipes. All rights
+                &copy; {new Date().getFullYear()} Ristorante Italiano. All rights
                 reserved.
               </p>
             </div>

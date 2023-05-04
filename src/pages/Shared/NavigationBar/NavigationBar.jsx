@@ -7,10 +7,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import "./Nav.css";
-import { ToastContainer, toast } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import "react-toastify/dist/ReactToastify.css";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -18,7 +17,7 @@ const NavigationBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        toast('Logged out!', {
+        toast("Logged out!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -27,12 +26,13 @@ const NavigationBar = () => {
           draggable: true,
           progress: undefined,
           theme: "dark",
-          });
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  const tooltip = <Tooltip>{user?.displayName || user?.email}</Tooltip>;
   return (
     <Navbar collapseOnSelect expand="lg" className="nav-bg">
       <Container>
@@ -60,9 +60,13 @@ const NavigationBar = () => {
             </NavLink>
           </Nav>
           <Nav>
-            
             {user && 
-            <img src={user?.photoURL} alt="" className='profile-img'/>}
+            <OverlayTrigger placement="bottom" overlay={tooltip}>
+            {user && (
+              <img src={user?.photoURL} alt="" className="profile-img" />
+            )}
+          </OverlayTrigger>
+          }
             {user ? (
               <Button
                 variant="secondary"
@@ -90,7 +94,7 @@ const NavigationBar = () => {
         draggable
         pauseOnHover
         theme="dark"
-      />   
+      />
     </Navbar>
   );
 };

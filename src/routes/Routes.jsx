@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         path: ":id",
         element: <Chef></Chef>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(`https://ristorante-italiano-server-ibrahim-st.vercel.app/chef/${params.id}`),
       },
     ],
   },
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         {
             path:':id',
             element: <PrivateRoute><Recipe></Recipe></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/recipe/${params.id}`)
+            loader: ({params}) => fetch(`https://ristorante-italiano-server-ibrahim-st.vercel.app/recipe/${params.id}`)
 
         }
     ]

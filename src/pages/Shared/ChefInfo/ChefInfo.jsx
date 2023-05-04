@@ -27,17 +27,13 @@ const ChefInfo = ({ recipe }) => {
           />
           <Card.Body>
             <h3>{chef_name}</h3>
-            <Card.Text>
-              {description.slice(0, 171)}
-              {/* {recipes.map((recipe) => <p>{recipe.recipe_name}</p>)} */}
-            </Card.Text>
+            <Card.Text>{description.slice(0, 171)}</Card.Text>
             <h5>Years of experience : {years_of_experience}</h5>
+            <h6>No of Recipes: {recipes.length}</h6>
             <h6>Likes: {likes}</h6>
           </Card.Body>
           <Link to={`/recipe/${id}`}>
-            <Button className="my-1 w-100 btn-custom">
-              View Recipe
-            </Button>
+            <Button className="my-1 w-100 btn-custom">View Recipe</Button>
           </Link>
         </Card>
       </CardGroup>
