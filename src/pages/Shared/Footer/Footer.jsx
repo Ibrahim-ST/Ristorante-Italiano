@@ -3,7 +3,7 @@ import './Footer.css'
 const Footer = () => {
   return (
     <div className="">
-      <footer className="py-4" style={{ backgroundColor: "#1D2641", color: "#fff" }}>
+      <footer className="py-4" style={{ backgroundColor: "#0D0D0D", color: "#fff" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -53,6 +53,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-12">
               <p className='text-center'>
+                Md. Ibrahim Siddiquee
                 &copy; {new Date().getFullYear()} Ristorante Italiano. All rights
                 reserved.
               </p>

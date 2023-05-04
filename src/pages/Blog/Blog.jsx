@@ -12,10 +12,10 @@ const Blog = () => {
           <div className="border  bg-blog p-4 rounded">
             <div className="grid gap-2">
               <div className="  p-4 text-black">
-                <h1>
+                <h2>
                   1. Tell us the differences between uncontrolled and controlled
                   components.?
-                </h1>
+                </h2>
                 <p>
                   In React, a component can be classified as either a controlled
                   component or an uncontrolled component, depending on how it
@@ -33,15 +33,15 @@ const Blog = () => {
                 </p>
               </div>
               <div className="  p-4 text-black">
-                <h1>2. How to validate React props using PropTypes?</h1>
+                <h2>2. How to validate React props using PropTypes?</h2>
                 <p>
                   PropTypes is a feature in React that enables the validation of
-                  the properties passed into a component. With PropTypes, you
+                  the properties passed into a component. With PropTypes, we
                   can define the data type, required or optional status, and
                   other constraints for each prop passed to a component,
                   ensuring that they are of the correct format and structure. To
-                  use PropTypes, you first need to import it from the
-                  'prop-types' library. You can then define the propTypes object
+                  use PropTypes, at first we need to import it from the
+                  'prop-types' library. We can then define the propTypes object
                   on the component, which maps the prop names to their
                   respective PropTypes. There are various PropTypes available in
                   the library, such as string, number, bool, object, array, and
@@ -49,9 +49,9 @@ const Blog = () => {
                 </p>
               </div>
               <div className="  p-4 text-black">
-                <h1>
+                <h2>
                   3. Tell us the difference between nodejs and express js.
-                </h1>
+                </h2>
                 <p>
                   Node.js and Express.js are both popular web development
                   technologies used in building server-side applications with
@@ -72,21 +72,20 @@ const Blog = () => {
                 </p>
               </div>
               <div className="  p-4 text-black">
-                <h1>
+                <h2>
                   4. What is a custom hook, and why will you create a custom
                   hook??
-                </h1>
+                </h2>
                 <p>
                   In React, a custom hook is a JavaScript function that allows
                   you to reuse stateful logic across different components. A
-                  custom hook allows you to extract complex logic into reusable
+                  custom hook allows to extract complex logic into reusable
                   functions, which can be shared between components or even
                   across different projects. Custom hooks are useful for
                   abstracting away complex logic that may be required in
-                  multiple components, allowing you to keep your codebase clean
+                  multiple components, allowing us to keep the codebase clean
                   and maintainable. They can also help to reduce the amount of
-                  repetitive code that you have to write, which can save you
-                  time and effort. A custom hook typically takes one or more
+                  repetitive code that we have to write, which can save time and effort. A custom hook typically takes one or more
                   React hooks, such as useState or useEffect, and combines them
                   into a single function.
                 </p>
