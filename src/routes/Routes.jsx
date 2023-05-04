@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import About from "../pages/Shared/About/About";
 import Chef from "../pages/Shared/Chef/Chef";
 import Contact from "../pages/Shared/Contact/Contact";
 import Recipe from "../pages/Shared/Recipe/Recipe";
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact></Contact>
-      }
+      },
+      {
+        path: '/about',
+        element: <About></About>
+      } 
     ],
     errorElement: <ErrorPage></ErrorPage>
   },

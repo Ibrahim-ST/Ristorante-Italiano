@@ -29,7 +29,7 @@ const NavigationBar = () => {
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
             <Nav.Link href="/about">About Us</Nav.Link>
-            <Nav.Link href="/">Videos</Nav.Link>
+            
           </Nav>
           <Nav>
             <Link>{user?.email || user?.displayName}</Link>
