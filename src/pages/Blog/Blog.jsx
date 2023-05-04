@@ -1,7 +1,25 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import { FaFilePdf } from "react-icons/fa"; 
+import { useRef } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
 
 const Blog = () => {
+  const pdfRef = useRef();
+
+  const handleDownload = () => {
+    const canvas = pdfRef.current?.canvas;
+    canvas?.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'my_document.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+  };
+
   return (
     <div className="bg-blogpage">
       <Container>
@@ -11,6 +29,10 @@ const Blog = () => {
         <section className=" mx-auto py-2">
           <div className="border  bg-blog p-4 rounded">
             <div className="grid gap-2">
+              <Button onClick={handleDownload} className='btn-custom'>
+                <FaFilePdf></FaFilePdf>
+                <span className='mx-2'>PDF</span>
+              </Button>
               <div className="  p-4 text-black">
                 <h2>
                   1. Tell us the differences between uncontrolled and controlled
@@ -36,15 +58,15 @@ const Blog = () => {
                 <h2>2. How to validate React props using PropTypes?</h2>
                 <p>
                   PropTypes is a feature in React that enables the validation of
-                  the properties passed into a component. With PropTypes, we
-                  can define the data type, required or optional status, and
-                  other constraints for each prop passed to a component,
-                  ensuring that they are of the correct format and structure. To
-                  use PropTypes, at first we need to import it from the
-                  'prop-types' library. We can then define the propTypes object
-                  on the component, which maps the prop names to their
-                  respective PropTypes. There are various PropTypes available in
-                  the library, such as string, number, bool, object, array, and
+                  the properties passed into a component. With PropTypes, we can
+                  define the data type, required or optional status, and other
+                  constraints for each prop passed to a component, ensuring that
+                  they are of the correct format and structure. To use
+                  PropTypes, at first we need to import it from the 'prop-types'
+                  library. We can then define the propTypes object on the
+                  component, which maps the prop names to their respective
+                  PropTypes. There are various PropTypes available in the
+                  library, such as string, number, bool, object, array, and
                   more.
                 </p>
               </div>
@@ -85,15 +107,16 @@ const Blog = () => {
                   abstracting away complex logic that may be required in
                   multiple components, allowing us to keep the codebase clean
                   and maintainable. They can also help to reduce the amount of
-                  repetitive code that we have to write, which can save time and effort. A custom hook typically takes one or more
-                  React hooks, such as useState or useEffect, and combines them
-                  into a single function.
+                  repetitive code that we have to write, which can save time and
+                  effort. A custom hook typically takes one or more React hooks,
+                  such as useState or useEffect, and combines them into a single
+                  function.
                 </p>
               </div>
             </div>
           </div>
         </section>
-      </Container>
+      </Container> 
     </div>
   );
 };
